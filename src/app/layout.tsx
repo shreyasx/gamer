@@ -52,7 +52,11 @@ export default function RootLayout({
 }) {
 	return (
 		<html>
-			<body>{children}</body>
+			<body>
+				<main className="bg-black min-h-[100vw] text-white mb-auto">
+					{children}
+				</main>
+			</body>
 		</html>
 	);
 }
