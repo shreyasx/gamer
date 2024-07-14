@@ -9,6 +9,11 @@ export default {
 				primary: ["Inter", ...defaultTheme.fontFamily.sans],
 				game: ["VT323", "monospace"],
 			},
+			fontSize: {
+				lg: "2rem",
+				xl: "2.5rem",
+				"2xl": "3rem",
+			},
 			colors: {
 				primary: {
 					// Customize it on globals.css :root

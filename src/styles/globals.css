@@ -53,8 +53,13 @@
 
 	h1,
 	.h1 {
-		@apply font-primary text-2xl font-bold md:text-4xl;
+		@apply font-game text-xl md:text-2xl;
 	}
+
+	/* h1,
+	.h1 {
+		@apply font-primary text-2xl font-bold md:text-4xl;
+	} */
 
 	h2,
 	.h2 {
@@ -73,7 +78,7 @@
 
 	body,
 	.p {
-		@apply font-primary text-sm md:text-base;
+		@apply font-game text-lg;
 	}
 	/* #endregion  /**======== Typography =========== */
 

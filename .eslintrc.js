@@ -13,7 +13,6 @@ module.exports = {
 		"prettier",
 	],
 	rules: {
-		"no-unused-vars": "off",
 		"no-console": "warn",
 		"@typescript-eslint/explicit-module-boundary-types": "off",
 		"react/no-unescaped-entities": "off",
@@ -21,7 +20,6 @@ module.exports = {
 		"react/display-name": "off",
 
 		//#region  //*=========== Unused Import ===========
-		"@typescript-eslint/no-unused-vars": "off",
 		"unused-imports/no-unused-imports": "warn",
 		"unused-imports/no-unused-vars": [
 			"warn",
