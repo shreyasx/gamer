@@ -3,19 +3,27 @@
 import * as React from "react";
 import "@/lib/env";
 
+import Card from "@/components/card";
+import Navbar from "@/components/navbar";
+
 export default function HomePage() {
 	return (
-		<section className="flex justify-center items-center min-h-screen">
-			<div className="text-white font-game max-w-xs sm:max-w-md md:max-w-lg">
-				<h1 className="">{`Rohan's Home`}</h1>
-				<div className="text-white leading-10">
-					<p className="py-2 pt-4">{`How do you like the font bro?`}</p>
-					<p className="py-2 leading-10">
-						{`lorem ipsum dolor sit amet consectetur adipiscing elit sed do` +
-							`eiusmod tempor incididunt ut labore et dolore magna aliqua`}
-					</p>
-				</div>
-			</div>
-		</section>
+		<>
+			<Navbar />
+			<section className="flex justify-center items-center mt-80">
+				<ul className="grid grid-cols-2 gap-x-16 gap-y-4 p-14 w-full">
+					<Card
+						line1="Kurukshetra: Ascention"
+						line2="Design, Playtest, Product"
+					/>
+					<Card line1="Night Club Miami" line2="Pre-Production" />
+					<Card line1="Night Club Miami" line2="Pre-Production" />
+					<Card
+						line1="Kurukshetra: Ascention"
+						line2="Design, Playtest, Product"
+					/>
+				</ul>
+			</section>
+		</>
 	);
 }

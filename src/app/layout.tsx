@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import * as React from "react";
 
 import "@/styles/globals.css";
@@ -53,9 +54,27 @@ export default function RootLayout({
 	return (
 		<html>
 			<body>
-				<main className="bg-black min-h-[100vw] text-white mb-auto">
-					{children}
-				</main>
+				<div className="flex min-h-screen bg-black text-white">
+					<main className="w-4/5 mb-auto">{children}</main>
+					<aside className="relative w-1/5 max-w-[350px] min-w-[300px] bg-black text-white border-l-4 flex flex-col justify-center mt-80">
+						<Link
+							href={`/games`}
+							className="text-2xl my-6 text-center"
+						>{`Games`}</Link>
+						<Link
+							href={`/about`}
+							className="text-2xl my-6 text-center"
+						>{`About`}</Link>
+						<div className="absolute bottom-0 w-full text-center mb-6 border-t-4">
+							<p className="text-sm py-0.5">
+								<Link href="mailto:rohangwrl@gmail.com">
+									{`rohangwrl@gmail.com`}
+								</Link>
+							</p>
+							<p className="text-sm py-0.5">{`+91 9920054070`}</p>
+						</div>
+					</aside>
+				</div>
 			</body>
 		</html>
 	);
