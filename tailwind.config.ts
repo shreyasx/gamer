@@ -5,6 +5,9 @@ export default {
 	content: ["./src/**/*.{js,jsx,ts,tsx}"],
 	theme: {
 		extend: {
+			backgroundImage: {
+				"navbar-bg": "url('/images/stars.png')",
+			},
 			fontFamily: {
 				primary: ["Inter", ...defaultTheme.fontFamily.sans],
 				game: ["VT323", "monospace"],
