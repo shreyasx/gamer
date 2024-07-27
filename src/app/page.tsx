@@ -1,22 +1,23 @@
 "use client";
 
+import { Prisma } from "@prisma/client";
 import * as React from "react";
 
 import Card from "@/components/card";
 import Navbar from "@/components/navbar";
 
-import { newContent } from "@/app/actions";
+type Game = Prisma.GameGetPayload<{
+  include: { contributions: true; tags: true; objects: true };
+}>;
 
 export default function HomePage() {
+  const [games, setGames] = React.useState<Game[]>([]);
+
   React.useEffect(() => {
     (async () => {
-      const ct = {
-        image: "image22",
-        description: "descript2ion",
-        gameId: null,
-      };
-      const content = await newContent(ct);
-      console.log(content);
+      const res = await fetch("/api/games");
+      const data = await res.json();
+      setGames(data.games);
     })();
   }, []);
 
@@ -25,16 +26,9 @@ export default function HomePage() {
       <Navbar />
       <section className="flex justify-center items-center mt-80">
         <ul className="grid grid-cols-2 gap-x-16 gap-y-4 p-14 w-full">
-          <Card
-            line1="Kurukshetra: Ascention"
-            line2="Design, Playtest, Product"
-          />
-          <Card line1="Night Club Miami" line2="Pre-Production" />
-          <Card line1="Night Club Miami" line2="Pre-Production" />
-          <Card
-            line1="Kurukshetra: Ascention"
-            line2="Design, Playtest, Product"
-          />
+          {games.length
+            ? games.map((game) => <Card key={game.id} game={game} />)
+            : null}
         </ul>
       </section>
     </>

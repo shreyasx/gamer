@@ -1,52 +1,44 @@
-import { PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
-type Tag = { title: string; percentage: number };
-type ObjectType = { text: string };
-
-type Content = {
-  image: string;
-  description: string;
-};
-
-type Game = {
-  title: string;
-  description: string;
-  thumbnail: string;
-  logo: string;
-  contributions: Content[];
-  tags: Tag[];
-  objects: ObjectType[];
-};
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function isGame(obj: any): obj is Game {
-  return (
-    typeof obj === "object" &&
-    typeof obj.title === "string" &&
-    typeof obj.description === "string" &&
-    typeof obj.thumbnail === "string" &&
-    typeof obj.logo === "string" &&
-    Array.isArray(obj.contributions) &&
-    Array.isArray(obj.tags) &&
-    Array.isArray(obj.objects)
-  );
-}
+type Game = Prisma.GameGetPayload<{
+  include: { tags: true; contributions: true; objects: true };
+}>;
 
 export async function POST(Request: NextRequest) {
   const data = await Request.json();
-  const { game }: { game: Game } = data;
-
-  if (!isGame(game)) {
-    return NextResponse.json({
-      error: true,
-      message: `Invalid game object`,
-    });
-  }
+  const { game, games }: { game: Game; games: Game[] } = data;
 
   const prisma = new PrismaClient({
     log: ["query", "info", "warn", "error"],
   });
+
+  if (games && games.length) {
+    const Gs = [];
+    for (const g of games) {
+      const obj = await prisma.game.create({
+        data: {
+          title: g.title,
+          description: g.description,
+          thumbnail: g.thumbnail,
+          logo: g.logo,
+          color_code: g.color_code,
+          contributions: {
+            create: g.contributions,
+          },
+          tags: {
+            create: g.tags,
+          },
+          objects: {
+            create: g.objects,
+          },
+        },
+        include: { tags: true, contributions: true, objects: true },
+      });
+      Gs.push(obj);
+    }
+    return NextResponse.json({ error: false, games: Gs });
+  }
 
   try {
     const obj = await prisma.game.create({
@@ -55,6 +47,7 @@ export async function POST(Request: NextRequest) {
         description: game.description,
         thumbnail: game.thumbnail,
         logo: game.logo,
+        color_code: game.color_code,
         contributions: {
           create: game.contributions,
         },

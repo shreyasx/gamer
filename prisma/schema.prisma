@@ -10,7 +10,8 @@ generator client {
 model Tag {
   id         Int    @id @default(autoincrement())
   title      String
-  percentage Int
+  percentage_width Int
+  color_code String
   games Game[] @relation("GameTags")
 }
 
@@ -33,6 +34,7 @@ model Game {
   title         String
   logo          String
   thumbnail     String
+  color_code    String
   description   String
   tags          Tag[]     @relation("GameTags")
   objects       ObjectTyp[]  @relation("GameObjects")
