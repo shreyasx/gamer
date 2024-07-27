@@ -1,42 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
+model Content {
+  id          Int    @id @default(autoincrement())
+  image       String
+  description String
+  gameId      Int?
+  Game        Game?  @relation(fields: [gameId], references: [id])
 }
 
-model Tag {
-  id         Int    @id @default(autoincrement())
-  title      String
-  percentage_width Int
-  color_code String
-  games Game[] @relation("GameTags")
+model Game {
+  id          Int         @id @default(autoincrement())
+  title       String
+  logo        String
+  thumbnail   String
+  description String
+  color_code  String
+  contributions     Content[]
+  objects   ObjectTyp[] @relation("GameObjects")
+  tags         Tag[]       @relation("GameTags")
 }
 
 model ObjectTyp {
   id   Int    @id @default(autoincrement())
   text String
-  games Game[] @relation("GameObjects")
+  Game Game[] @relation("GameObjects")
 }
 
-model Content {
-  id    Int    @id @default(autoincrement())
-  image String
-  description String
-  gameId Int?
-  game   Game?   @relation(fields: [gameId], references: [id])
-}
-
-model Game {
-  id            Int       @id @default(autoincrement())
-  title         String
-  logo          String
-  thumbnail     String
-  color_code    String
-  description   String
-  tags          Tag[]     @relation("GameTags")
-  objects       ObjectTyp[]  @relation("GameObjects")
-  contributions Content[]
+model Tag {
+  id               Int    @id @default(autoincrement())
+  title            String
+  color_code       String
+  percentage_width Int
+  Game             Game[] @relation("GameTags")
 }
