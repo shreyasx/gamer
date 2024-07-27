@@ -17,6 +17,7 @@ export async function GET() {
       {
         error: true,
         message: `Failed to load games`,
+        obj: error,
       },
       { status: 400 },
     );
