@@ -1,34 +1,21 @@
-"use client";
-
-import { Prisma } from "@prisma/client";
 import * as React from "react";
 
 import Card from "@/components/card";
 import Navbar from "@/components/navbar";
 
-type Game = Prisma.GameGetPayload<{
-  include: { contributions: true; tags: true; objects: true };
-}>;
+import { allGames } from "@/app/actions";
 
-export default function HomePage() {
-  const [games, setGames] = React.useState<Game[]>([]);
-
-  React.useEffect(() => {
-    (async () => {
-      const res = await fetch("/api/games");
-      const data = await res.json();
-      setGames(data.games);
-    })();
-  }, []);
+export default async function HomePage() {
+  const games = await allGames();
 
   return (
     <>
       <Navbar />
       <section className="flex justify-center items-center mt-80">
-        <ul className="grid grid-cols-2 gap-x-16 gap-y-4 p-14 w-full">
-          {games.length
-            ? games.map((game) => <Card key={game.id} game={game} />)
-            : null}
+        <ul className="grid grid-cols-2 gap-12 p-14 w-full">
+          {games.map((game) => (
+            <Card key={game.id} game={game} />
+          ))}
         </ul>
       </section>
     </>

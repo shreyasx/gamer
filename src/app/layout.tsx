@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import * as React from "react";
 
@@ -54,11 +55,23 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <div className="flex min-h-screen bg-black text-white">
-          <main className="w-4/5 mb-auto">{children}</main>
-          <aside className="relative max-w-[350px] min-w-[300px] bg-black text-white border-l-4 flex flex-col justify-center mt-80 w-1/5">
+        <div className="flex h-screen bg-black text-white ">
+          <main className="w-4/5 mb-auto overflow-y-auto max-h-full">
+            {children}
+          </main>
+          <aside className="absolute h-full min-w-[300px] bg-black text-white border-l-4 flex flex-col justify-center w-1/5 right-0">
+            <div className="flex flex-col justify-center items-center absolute top-0 w-full border-b-4 !h-80">
+              <Image
+                src="/images/rohan.png"
+                alt="Rohan"
+                width={250}
+                height={200}
+                className="h-full w-auto pt-4 object-contain"
+              />
+              <span>Rohan</span>
+            </div>
             <Link
-              href={`/games`}
+              href={`/`}
               className="text-2xl my-6 text-center"
             >{`Games`}</Link>
             <Link

@@ -1,14 +1,15 @@
 import { Prisma } from "@prisma/client";
 import Image from "next/image";
+import Link from "next/link";
 
 type Game = Prisma.GameGetPayload<{
   include: { tags: true };
 }>;
 
 const Card = ({ game }: { game: Game }) => {
-  const { title, thumbnail, logo, tags, color_code } = game;
+  const { title, thumbnail, logo, tags, color_code, id } = game;
   return (
-    <div className="flex flex-col w-fit">
+    <Link href={`/games/${id}`} className="flex flex-col w-fit">
       <li
         style={{ background: color_code }}
         className="rounded-3xl pr-3 mx-auto rounded-b-none"
@@ -17,9 +18,9 @@ const Card = ({ game }: { game: Game }) => {
           // https://picsum.photos/500/300
           src={thumbnail}
           alt="lol"
-          width={500}
-          height={250}
-          className="rounded-3xl rounded-bl-none"
+          width={600}
+          height={200}
+          className="rounded-3xl rounded-bl-none h-[250px] object-cover"
         />
       </li>
       <div
@@ -32,7 +33,7 @@ const Card = ({ game }: { game: Game }) => {
             alt="lol"
             width={150}
             height={75}
-            className="rounded-bl-3xl h-full"
+            className="rounded-bl-3xl h-full w-full object-cover"
           />
         </div>
         <div className="w-2/3">
@@ -55,7 +56,7 @@ const Card = ({ game }: { game: Game }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
