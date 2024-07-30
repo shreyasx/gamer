@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <nav className="absolute top-0 left-0 w-4/5 h-80 border-b-4 flex flex-row bg-navbar-bg">
+    <nav className="absolute top-0 left-0 w-4/5 h-80 border-b-4 flex flex-row bg-navbar-bg z-10">
       <div className="flex justify-center items-center h-full w-full">
         <h1 className="text-lg text-center w-[90%] max-w-[1200px]">
           {`Hey, I'm a geeky`}

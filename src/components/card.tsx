@@ -19,7 +19,7 @@ const Card = ({ game }: { game: Game }) => {
           src={thumbnail}
           alt="lol"
           width={600}
-          height={200}
+          height={250}
           className="rounded-3xl rounded-bl-none h-[250px] object-cover"
         />
       </li>

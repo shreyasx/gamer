@@ -58,14 +58,9 @@
     @apply font-game text-xl md:text-2xl;
   }
 
-  /* h1,
-	.h1 {
-		@apply font-primary text-2xl font-bold md:text-4xl;
-	} */
-
   h2,
   .h2 {
-    @apply font-primary text-xl font-bold md:text-3xl;
+    @apply font-game text-xl;
   }
 
   h3,
