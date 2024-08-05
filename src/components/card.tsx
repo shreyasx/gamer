@@ -19,25 +19,25 @@ const Card = ({ game }: { game: Game }) => {
           src={thumbnail}
           alt="lol"
           width={600}
-          height={250}
-          className="rounded-3xl rounded-bl-none h-[250px] object-cover"
+          height={300}
+          className="rounded-3xl rounded-bl-none h-[300px] object-cover"
         />
       </li>
       <div
         style={{ background: color_code }}
-        className="flex flex-row h-[75px] rounded-b-3xl w-full"
+        className="flex flex-row h-[100px] rounded-b-3xl w-full"
       >
         <div className="w-1/3">
           <Image
             src={logo}
             alt="lol"
-            width={150}
-            height={75}
+            width={200}
+            height={100}
             className="rounded-bl-3xl h-full w-full object-cover"
           />
         </div>
-        <div className="w-2/3">
-          <p className="text-black text-base font-bold text-center pt-1 flex justify-center items-center">
+        <div className="w-2/3 flex flex-col">
+          <p className="text-black text-base font-bold text-center flex justify-center items-center text-lg px-2 py-4 h-full">
             {title}
           </p>
           <div className="flex flex-row w-full">
