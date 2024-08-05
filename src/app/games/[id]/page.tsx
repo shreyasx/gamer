@@ -16,8 +16,8 @@ export default async function GameDetails({ params }: Props) {
   return (
     <>
       <Navbar />
-      <section className="flex justify-center items-center mt-80 flex-col px-12">
-        <h1 className="pt-5">{`OVERVIEW`}</h1>
+      <section className="flex justify-center items-center mt-80 flex-col px-12 py-20">
+        <h1 className="pb-3">{`OVERVIEW`}</h1>
         <div className="py-8 flex justify-start w-full">
           <div className="relative w-[40%] min-h-[300px]">
             <Image src={thumbnail} alt="lol" fill className="object-contain" />
@@ -39,7 +39,7 @@ export default async function GameDetails({ params }: Props) {
             </div>
           </div>
         </div>
-        <h2 className="pt-5 text-left w-full">{`CONTRIBUTIONS:`}</h2>
+        <h2 className="pt-5 text-left w-full pb-3">{`CONTRIBUTIONS:`}</h2>
         <div className="grid grid-cols-2 gap-y-12 gap-x-20 w-full">
           {contributions.map((contribution) => (
             <div
