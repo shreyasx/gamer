@@ -17,10 +17,15 @@ export default async function GameDetails({ params }: Props) {
     <>
       <Navbar />
       <section className="flex justify-center items-center mt-80 flex-col px-12 py-20">
-        <h1 className="pb-3">{`OVERVIEW`}</h1>
+        <h1 className="text-6xl pb-3">{`OVERVIEW`}</h1>
         <div className="py-8 flex justify-start w-full">
           <div className="relative w-[40%] min-h-[300px]">
-            <Image src={thumbnail} alt="lol" fill className="object-contain" />
+            <Image
+              src={thumbnail}
+              alt="lol"
+              fill
+              className="object-contain object-top"
+            />
           </div>
           <div className="w-[60%] px-16">
             <div className="flex flex-wrap justify-start h-fit w-full py-3">
@@ -28,18 +33,18 @@ export default async function GameDetails({ params }: Props) {
                 <div
                   key={object.id}
                   style={{ background: game.color_code }}
-                  className="px-3 py-1.5 m-1 rounded-md h-fit w-fit"
+                  className="px-2 py-0.5 m-1 rounded-md h-fit w-fit"
                 >
-                  <p className="text-black text-base">{object.text}</p>
+                  <p className="text-black text-lg">{object.text}</p>
                 </div>
               ))}
             </div>
-            <div className="text-base text-justify py-3">
+            <div className="text-xl leading-10 text-justify py-3">
               {game.description}
             </div>
           </div>
         </div>
-        <h2 className="pt-5 text-left w-full pb-3">{`CONTRIBUTIONS:`}</h2>
+        <h2 className="text-6xl pt-5 text-left w-full pb-12">{`CONTRIBUTIONS:`}</h2>
         <div className="grid grid-cols-2 gap-y-12 gap-x-20 w-full">
           {contributions.map((contribution) => (
             <div
@@ -54,7 +59,7 @@ export default async function GameDetails({ params }: Props) {
                   className="object-contain"
                 />
               </div>
-              <p className="text-base">{contribution.description}</p>
+              <p className="text-lg text-justify">{contribution.description}</p>
             </div>
           ))}
         </div>

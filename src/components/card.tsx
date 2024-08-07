@@ -9,23 +9,22 @@ type Game = Prisma.GameGetPayload<{
 const Card = ({ game }: { game: Game }) => {
   const { title, thumbnail, logo, tags, color_code, id } = game;
   return (
-    <Link href={`/games/${id}`} className="flex flex-col w-fit">
-      <li
-        style={{ background: color_code }}
-        className="rounded-3xl pr-3 mx-auto rounded-b-none"
+    <Link href={`/games/${id}`} className="flex flex-col w-fit max-w-[610px]">
+      <div
+        style={{ background: color_code, borderColor: color_code }}
+        className="rounded-3xl pr-3 w-full rounded-b-none border-[1px]"
       >
         <Image
-          // https://picsum.photos/500/300
           src={thumbnail}
           alt="lol"
           width={600}
           height={300}
           className="rounded-3xl rounded-bl-none h-[300px] object-cover"
         />
-      </li>
+      </div>
       <div
         style={{ background: color_code }}
-        className="flex flex-row h-[100px] rounded-b-3xl w-full"
+        className="flex flex-row rounded-b-3xl w-full"
       >
         <div className="w-1/3">
           <Image
@@ -37,10 +36,10 @@ const Card = ({ game }: { game: Game }) => {
           />
         </div>
         <div className="w-2/3 flex flex-col">
-          <p className="text-black text-base font-bold text-center flex justify-center items-center text-lg px-2 py-4 h-full">
+          <p className="text-black text-center flex justify-center items-center text-5xl px-2 py-1">
             {title}
           </p>
-          <div className="flex flex-row w-full">
+          <div className="flex flex-row w-full h-full">
             {tags.map((tag) => (
               <span
                 key={tag.id}
@@ -48,7 +47,7 @@ const Card = ({ game }: { game: Game }) => {
                   background: tag.color_code,
                   width: `${tag.percentage_width}%`,
                 }}
-                className={`text-black text-base font-bold text-center flex justify-center items-center last:rounded-br-3xl`}
+                className={`text-black text-center flex justify-center items-center text-3xl last:rounded-br-3xl`}
               >
                 {tag.title}
               </span>

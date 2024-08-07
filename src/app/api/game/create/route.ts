@@ -1,5 +1,7 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import { Prisma } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
+
+import prisma from "@/lib/prisma";
 
 type Game = Prisma.GameGetPayload<{
   include: { tags: true; contributions: true; objects: true };
@@ -8,10 +10,6 @@ type Game = Prisma.GameGetPayload<{
 export async function POST(Request: NextRequest) {
   const data = await Request.json();
   const { game, games }: { game: Game; games: Game[] } = data;
-
-  const prisma = new PrismaClient({
-    log: ["query", "info", "warn", "error"],
-  });
 
   if (games && games.length) {
     const Gs = [];

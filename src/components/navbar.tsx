@@ -2,7 +2,7 @@ const Navbar = () => {
   return (
     <nav className="absolute top-0 left-0 w-4/5 h-80 border-b-4 flex flex-row bg-navbar-bg z-10">
       <div className="flex justify-center items-center h-full w-full">
-        <h1 className="text-lg text-center w-[90%] max-w-[1200px]">
+        <h1 className="text-2xl text-center w-[90%] max-w-[1200px] leading-[3.75rem]">
           {`Hey, I'm a geeky`}
           <span className="text-blue">{` Game Designer `}</span>
           {`creating dazzling experiences by baking in fun and practical. You can catch me learning at `}

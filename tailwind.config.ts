@@ -10,7 +10,6 @@ export default {
       },
       fontFamily: {
         primary: ["Inter", ...defaultTheme.fontFamily.sans],
-        game: ["VT323", "monospace"],
       },
       fontSize: {
         lg: "2rem",
