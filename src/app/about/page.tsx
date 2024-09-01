@@ -1,10 +1,8 @@
-// about page. black bg, just display rohan agarwal in the middle of the screen
-
 import React from "react";
 
 const AboutPage = () => {
   return (
-    <div className="bg-black h-screen flex items-center justify-center">
+    <div className="bg-navy h-screen flex items-center justify-center">
       <h1 className="text-white text-8xl uppercase tracking-widest">{`Rohan Agarwal`}</h1>
     </div>
   );

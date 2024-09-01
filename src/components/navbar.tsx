@@ -1,12 +1,10 @@
 const Navbar = () => {
   return (
-    <nav className="absolute top-0 left-0 w-4/5 h-80 border-b-4 flex flex-row bg-navbar-bg z-10">
-      <div className="flex justify-center items-center h-full w-full">
-        <h1 className="text-2xl text-center w-[90%] max-w-[1200px] leading-[3.75rem]">
-          {`Hey, I'm a geeky`}
-          <span className="text-blue">{` Game Designer `}</span>
-          {`creating dazzling experiences by baking in fun and practical. You can catch me learning at `}
-          <span className="text-blue underline underline-offset-4 cursor-pointer">{`Studio Sirah`}</span>
+    <nav className="absolute top-0 left-0 h-60 flex flex-row w-full bg-navy2">
+      <div className="flex items-center h-full relative mr-60">
+        <h1 className="text-2xl text-center leading-[3.75rem] max-w-[80%] mx-auto text-light2">
+          {`Hey! Rohan here, I'm a Game Designer sculpting experiences using fun and practical designs. You can catch me learning at `}
+          <span className="underline underline-offset-4 cursor-pointer">{`Studio Sirah`}</span>
           {`!`}
         </h1>
       </div>

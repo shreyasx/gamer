@@ -1,4 +1,4 @@
-import { getGameById } from "@/app/actions/game-by-handle";
+import { getGameById } from "@/app/actions/game-by-id";
 import { allGames } from "@/app/actions/games";
 
 export { allGames, getGameById };

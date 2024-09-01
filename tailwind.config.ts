@@ -5,9 +5,6 @@ export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      backgroundImage: {
-        "navbar-bg": "url('/images/stars.png')",
-      },
       fontFamily: {
         primary: ["Inter", ...defaultTheme.fontFamily.sans],
       },
@@ -33,6 +30,11 @@ export default {
         },
         dark: "#222222",
         blue: `#69F6FF`,
+        navy: "#162836",
+        navy2: "#121A20",
+        light: "#85AEC4",
+        light2: "#93B8CD", //tag bg
+        light3: "#2D5D78", //borders
       },
       keyframes: {
         flicker: {
