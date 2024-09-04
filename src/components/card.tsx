@@ -7,19 +7,19 @@ type Game = Prisma.GameGetPayload<{
 }>;
 
 const Card = ({ game }: { game: Game }) => {
-  const { title, thumbnail, logo, tags, color_code, id } = game;
+  const { title, thumbnail, tags, id } = game;
   return (
     <Link
       href={`/games/${id}`}
-      className="flex flex-col w-fit max-w-[610px] border-[2px] border-light p-4 rounded-3xl"
+      className="flex flex-col w-fit max-w-[750px] border-[2px] border-light p-4 rounded-3xl"
     >
       <div className="rounded-3xl w-full">
         <Image
           src={thumbnail}
-          alt="lol"
-          width={600}
-          height={300}
-          className="rounded-3xl h-[300px] object-cover border-[1px] border-white"
+          alt={title}
+          width={700}
+          height={400}
+          className="rounded-3xl h-[300px] 2xl:h-[350px] object-cover border-[1px] border-light2"
         />
       </div>
       <div className="flex flex-row rounded-b-3xl w-full">

@@ -18,10 +18,8 @@ model Content {
 model Game {
   id          Int         @id @default(autoincrement())
   title       String
-  logo        String
   thumbnail   String
   description String
-  color_code  String
   contributions     Content[]
   objects   ObjectTyp[] @relation("GameObjects")
   tags         Tag[]       @relation("GameTags")
@@ -36,7 +34,5 @@ model ObjectTyp {
 model Tag {
   id               Int    @id @default(autoincrement())
   title            String
-  color_code       String
-  percentage_width Int
   Game             Game[] @relation("GameTags")
 }

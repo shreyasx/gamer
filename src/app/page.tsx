@@ -11,7 +11,7 @@ export default async function HomePage() {
   return (
     <>
       <Navbar />
-      <section className="flex justify-center items-center mt-64 py-20 px-12">
+      <section className="flex justify-center items-center mt-64 px-12">
         <ul className="grid grid-cols-2 gap-12 p-14 w-full">
           {games.map((game) => (
             <li

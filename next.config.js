@@ -12,6 +12,8 @@ const nextConfig = {
       // 'res.cloudinary.com',
       `dummyimage.com`,
       `picsum.photos`,
+      `example.com`,
+      `your-image-server.com`,
     ],
   },
 
