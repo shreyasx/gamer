@@ -46,7 +46,7 @@ export default function RootLayout({
     <html>
       <body className={vt323.className}>
         <div className="flex h-screen bg-navy text-white ">
-          <main className="mb-auto overflow-y-auto max-h-full w-full mr-60">
+          <main className="mb-auto overflow-y-auto max-h-full w-full md:mr-60">
             {children}
           </main>
           <Sidebar />

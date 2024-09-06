@@ -33,8 +33,8 @@ const Sidebar = () => {
   }, [gameId]);
 
   return (
-    <aside className="w-64 h-full bg-navy text-white flex flex-col justify-between items-center fixed right-0">
-      <div className="absolute top-0 right-0 w-64 h-80">
+    <aside className="bg-navy text-white flex flex-col fixed bottom-0 left-0 w-full h-auto md:h-full md:w-64 md:right-0 md:left-auto">
+      <div className="hidden md:block w-64 h-80 relative">
         <Image
           src="/images/rohan.png"
           alt="Rohan"
@@ -43,22 +43,22 @@ const Sidebar = () => {
           className="rounded-b-full z-50"
         />
       </div>
-      <div className="flex flex-col justify-center items-center flex-grow w-full">
-        <nav className="space-y-4 flex flex-col items-center mt-64 w-full">
+      <div className="flex-grow flex flex-col justify-center">
+        <nav className="md:space-y-4 flex flex-row md:flex-col items-center w-full py-4 justify-evenly">
           <Link
             className="text-2xl text-light2 bg-navy2 px-10 py-1 rounded-full hover:bg-light3 transition-all duration-300 tracking-wider"
             href="/"
           >{`Games`}</Link>
           {gameName && (
-            <div className="flex flex-col items-end w-full space-y-2">
+            <div className="flex-col items-end w-full space-y-2 hidden md:flex">
               <Link
-                className="text-xl text-light2 bg-navy2 px-4 py-0.5 rounded-full hover:bg-light3 transition-all duration-300 truncate max-w-[200px] rounded-r-none"
+                className="text-xl text-light2 bg-navy2 px-4 py-0.5 rounded-full hover:bg-light3 transition-all duration-300 truncate max-w-[200px] md:rounded-r-none"
                 href={`/games/${gameId}`}
               >
                 {gameName}
               </Link>
               <Link
-                className="text-xl text-light2 bg-navy2 px-4 py-0.5 rounded-full hover:bg-light3 transition-all duration-300 truncate max-w-[200px] rounded-r-none"
+                className="text-xl text-light2 bg-navy2 px-4 py-0.5 rounded-full hover:bg-light3 transition-all duration-300 truncate max-w-[200px] md:rounded-r-none"
                 href={`/`}
               >
                 {`Go back`}
@@ -71,7 +71,7 @@ const Sidebar = () => {
           >{`About`}</Link>
         </nav>
       </div>
-      <div className="mt-auto mb-4 text-light2 text-center border-t-4 border-light2 pt-4">
+      <div className="block text-light2 text-center border-t-4 border-light2 pt-4">
         <p>{`rohangwrl@gmail.com`}</p>
         <p>{`+91 9920054070`}</p>
       </div>
