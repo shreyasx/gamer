@@ -33,18 +33,18 @@ const Sidebar = () => {
   }, [gameId]);
 
   return (
-    <aside className="bg-navy text-white flex flex-col fixed bottom-0 left-0 w-full h-auto md:h-full md:w-64 md:right-0 md:left-auto">
-      <div className="hidden md:block w-64 h-80 relative">
+    <aside className="bg-navy text-white flex flex-col fixed bottom-0 left-0 w-full h-auto md:h-full md:w-80 md:right-0 md:left-auto">
+      <div className="hidden md:block w-64 h-80 relative ml-auto">
         <Image
           src="/images/rohan.png"
           alt="Rohan"
           layout="fill"
           objectFit="cover"
-          className="rounded-b-full z-50"
+          className="rounded-b-full z-50 border-[10px] border-photoBG border-t-0"
         />
       </div>
       <div className="flex-grow flex flex-col justify-center">
-        <nav className="md:space-y-4 flex flex-row md:flex-col items-center w-full py-4 justify-evenly">
+        <nav className="md:space-y-20 flex flex-row md:flex-col items-center w-full py-4 justify-evenly">
           <Link
             className="text-2xl text-light2 bg-navy2 px-10 py-1 rounded-full hover:bg-light3 transition-all duration-300 tracking-wider"
             href="/"
@@ -71,7 +71,7 @@ const Sidebar = () => {
           >{`About`}</Link>
         </nav>
       </div>
-      <div className="block text-light2 text-center border-t-4 border-light2 pt-4">
+      <div className="text-base text-light2 text-center border-t-4 border-light2 pt-4 flex flex-col items-center">
         <p>{`rohangwrl@gmail.com`}</p>
         <p>{`+91 9920054070`}</p>
       </div>

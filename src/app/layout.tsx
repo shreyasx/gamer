@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import { VT323 } from "next/font/google";
 import * as React from "react";
 
 import "@/styles/globals.css";
@@ -7,8 +6,6 @@ import "@/styles/globals.css";
 import Sidebar from "@/components/sidebar";
 
 import { siteConfig } from "@/constant/config";
-
-const vt323 = VT323({ weight: ["400"], subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -44,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className={vt323.className}>
+      <body>
         <div className="flex h-screen bg-navy text-white ">
           <main className="mb-auto overflow-y-auto max-h-full w-full md:mr-60">
             {children}

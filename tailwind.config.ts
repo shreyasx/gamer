@@ -9,6 +9,7 @@ export default {
         primary: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
+        base: "20px",
         lg: "2rem",
         xl: "2.5rem",
         "2xl": "3rem",
@@ -35,6 +36,7 @@ export default {
         light: "#85AEC4",
         light2: "#93B8CD", //tag bg
         light3: "#2D5D78", //borders
+        photoBG: "#121A20", //photo bg
       },
       keyframes: {
         flicker: {
