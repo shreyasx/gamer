@@ -33,7 +33,7 @@ const Sidebar = () => {
   }, [gameId]);
 
   return (
-    <aside className="bg-navy text-white flex flex-col fixed bottom-0 left-0 w-full h-auto md:h-full md:w-80 md:right-0 md:left-auto">
+    <aside className="bg-navy text-white flex flex-col fixed bottom-0 left-0 w-full h-auto md:h-full md:w-64 2xl:w-96 md:right-0 md:left-auto">
       <div className="hidden md:block w-64 h-80 relative ml-auto">
         <Image
           src="/images/rohan.png"
@@ -44,34 +44,36 @@ const Sidebar = () => {
         />
       </div>
       <div className="flex-grow flex flex-col justify-center">
-        <nav className="md:space-y-20 flex flex-row md:flex-col items-center w-full py-4 justify-evenly">
+        <nav
+          className={`${gameName ? `md:space-y-3` : `md:space-y-20`} flex flex-row md:flex-col items-center w-full max-w-72 ml-auto py-4 justify-evenly`}
+        >
           <Link
-            className="text-2xl text-light2 bg-navy2 px-10 py-1 rounded-full hover:bg-light3 transition-all duration-300 tracking-wider"
+            className="w-full text-lg md:text-xl text-light2 bg-navy2 justify-center items-center flex py-4 rounded-full hover:bg-light3 transition-all duration-300 tracking-wider"
             href="/"
           >{`Games`}</Link>
           {gameName && (
-            <div className="flex-col items-end w-full space-y-2 hidden md:flex">
+            <>
               <Link
-                className="text-xl text-light2 bg-navy2 px-4 py-0.5 rounded-full hover:bg-light3 transition-all duration-300 truncate max-w-[200px] md:rounded-r-none"
+                className="justify-center items-center flex  w-full text-lg md:text-xl text-light2 bg-navy2 py-4 rounded-full hover:bg-light3 transition-all duration-300"
                 href={`/games/${gameId}`}
               >
-                {gameName}
+                <span className="truncate">{gameName}</span>
               </Link>
               <Link
-                className="text-xl text-light2 bg-navy2 px-4 py-0.5 rounded-full hover:bg-light3 transition-all duration-300 truncate max-w-[200px] md:rounded-r-none"
+                className="w-full text-lg md:text-xl text-light2 bg-navy2 justify-center items-center flex py-4 rounded-full hover:bg-light3 transition-all duration-300 truncate"
                 href={`/`}
               >
                 {`Go back`}
               </Link>
-            </div>
+            </>
           )}
           <Link
-            className="text-2xl text-light2 bg-navy2 px-10 py-1 rounded-full hover:bg-light3 transition-all duration-300 tracking-wider"
+            className="w-full text-lg md:text-xl text-light2 bg-navy2 py-4 justify-center items-center flex rounded-full hover:bg-light3 transition-all duration-300 tracking-wider"
             href="/about"
           >{`About`}</Link>
         </nav>
       </div>
-      <div className="text-base text-light2 text-center border-t-4 border-light2 pt-4 flex flex-col items-center">
+      <div className="text-sm w-full max-w-72 ml-auto text-light2 text-center border-t-4 border-light2 py-4 flex flex-col items-center">
         <p>{`rohangwrl@gmail.com`}</p>
         <p>{`+91 9920054070`}</p>
       </div>

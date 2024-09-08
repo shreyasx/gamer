@@ -9,8 +9,9 @@ export default {
         primary: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       fontSize: {
-        base: "20px",
-        lg: "2rem",
+        sm: "1.25rem",
+        base: "1.5rem",
+        lg: "1.8rem",
         xl: "2.5rem",
         "2xl": "3rem",
       },

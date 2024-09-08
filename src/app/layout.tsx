@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Poppins } from "next/font/google";
 import * as React from "react";
 
 import "@/styles/globals.css";
@@ -6,6 +7,13 @@ import "@/styles/globals.css";
 import Sidebar from "@/components/sidebar";
 
 import { siteConfig } from "@/constant/config";
+
+// Load Poppins font
+const poppins = Poppins({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -40,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
+    <html lang="en" className={poppins.className}>
       <body>
         <div className="flex h-screen bg-navy text-white ">
           <main className="mb-auto overflow-y-auto max-h-full w-full md:mr-60">
