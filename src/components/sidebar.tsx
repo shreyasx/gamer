@@ -32,6 +32,8 @@ const Sidebar = () => {
     })();
   }, [gameId]);
 
+  const showGoBack = gameName || pathname === "/about";
+
   return (
     <aside className="bg-navy text-white flex flex-col fixed bottom-0 left-0 w-full h-auto md:h-full md:w-64 2xl:w-96 md:right-0 md:left-auto">
       <div className="hidden md:block w-64 h-80 relative ml-auto">
@@ -45,32 +47,28 @@ const Sidebar = () => {
       </div>
       <div className="flex-grow flex flex-col justify-center">
         <nav
-          className={`${gameName ? `md:space-y-3` : `md:space-y-20`} flex flex-row md:flex-col items-center w-full max-w-72 ml-auto py-4 justify-evenly`}
+          className={`${showGoBack ? `md:space-y-3` : `md:space-y-20`} flex flex-row md:flex-col items-center w-full max-w-72 ml-auto py-4 justify-evenly`}
         >
           <Link
-            className="w-full text-lg md:text-xl text-light2 bg-navy2 justify-center items-center flex py-4 rounded-full hover:bg-light3 transition-all duration-300 tracking-wider"
-            href="/"
-          >{`Games`}</Link>
-          {gameName && (
-            <>
-              <Link
-                className="justify-center items-center flex  w-full text-lg md:text-xl text-light2 bg-navy2 py-4 rounded-full hover:bg-light3 transition-all duration-300"
-                href={`/games/${gameId}`}
-              >
-                <span className="truncate">{gameName}</span>
-              </Link>
-              <Link
-                className="w-full text-lg md:text-xl text-light2 bg-navy2 justify-center items-center flex py-4 rounded-full hover:bg-light3 transition-all duration-300 truncate"
-                href={`/`}
-              >
-                {`Go back`}
-              </Link>
-            </>
-          )}
-          <Link
-            className="w-full text-lg md:text-xl text-light2 bg-navy2 py-4 justify-center items-center flex rounded-full hover:bg-light3 transition-all duration-300 tracking-wider"
+            className="w-full text-lg text-light2 bg-navy2 py-4 justify-center items-center flex rounded-full hover:bg-light3 transition-all duration-300 tracking-wider"
             href="/about"
           >{`About`}</Link>
+          {gameName && (
+            <Link
+              className="justify-center items-center flex w-full text-lg text-light2 bg-navy2 py-4 rounded-full hover:bg-light3 transition-all duration-300"
+              href={`/games/${gameId}`}
+            >
+              <span className="truncate max-w-[90%]">{gameName}</span>
+            </Link>
+          )}
+          {showGoBack && (
+            <Link
+              className="w-[90%] text-base md:text-lg text-light2 bg-navy2 justify-center items-center flex py-2 rounded-full hover:bg-light3 transition-all duration-300 truncate"
+              href={`/`}
+            >
+              {`Go back`}
+            </Link>
+          )}
         </nav>
       </div>
       <div className="text-sm w-full max-w-72 ml-auto text-light2 text-center border-t-4 border-light2 py-4 flex flex-col items-center">

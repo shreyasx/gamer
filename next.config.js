@@ -7,15 +7,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-  images: {
-    domains: [
-      // 'res.cloudinary.com',
-      `dummyimage.com`,
-      `picsum.photos`,
-      `example.com`,
-      `your-image-server.com`,
-    ],
-  },
+  images: { domains: ["res.cloudinary.com"] },
 
   webpack(config) {
     // Grab the existing rule that handles SVG imports
