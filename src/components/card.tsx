@@ -1,23 +1,29 @@
 "use client";
 
 import { Prisma } from "@prisma/client";
+import Image from "next/image";
 import Link from "next/link";
-
-import EmblaCarousel from "@/components/embla-carousel";
 
 type Game = Prisma.GameGetPayload<{
   include: { tags: true };
 }>;
 
 const Card = ({ game, className }: { game: Game; className?: string }) => {
-  const { title, thumbnails, tags, id } = game;
+  const { title, thumbnail, tags, id } = game;
 
   return (
     <Link
       href={`/games/${id}`}
       className={`flex flex-col w-full border-[4px] border-light3 p-4 rounded-3xl ${className}`}
     >
-      <EmblaCarousel slides={thumbnails} />
+      <div className="relative w-full mb-8 md:mb-0 aspect-video">
+        <Image
+          src={thumbnail}
+          alt="Game title image"
+          fill
+          className="object-contain border-[2px] border-light2 rounded-3xl"
+        />
+      </div>
       <div className="flex flex-row rounded-b-3xl w-full">
         <div className="w-full flex flex-col">
           <p className="text-light2 text-center flex justify-center items-center text-lg md:text-xl px-2 leading-10 py-3">
