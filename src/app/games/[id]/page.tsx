@@ -19,28 +19,30 @@ export default async function GameDetails({ params }: Props) {
 
   return (
     <section className="flex justify-center items-center flex-col mr-0 md:mr-8 2xl:px-48 mx-4">
-      <div className="py-8 flex flex-col md:flex-row justify-start w-full rounded-br-3xl md:mr-24">
-        <div className="relative w-full md:w-[40%] md:ml-16 mb-8 md:mb-0 aspect-video">
-          <Image
-            src={thumbnail}
-            alt={title}
-            fill
-            className="object-contain object-center"
-          />
-        </div>
-        <div className="w-full md:w-[60%] px-4 md:px-16">
-          <h1 className="text-lg md:text-xl pb-3 text-light2">{`OVERVIEW`}</h1>
-          <div className="flex flex-wrap justify-start h-fit w-full py-3">
-            {objects.map((object) => (
-              <div
-                key={object.id}
-                className="m-2 px-4 py-1.5 rounded-full h-fit w-fit bg-light2"
-              >
-                <p className="text-black text-base">{object.text}</p>
-              </div>
-            ))}
+      <div className="py-8 flex flex-col items-center w-full rounded-br-3xl md:mr-24">
+        <h2 className="text-lg md:text-xl pb-6 text-light2 text-center w-full">{`OVERVIEW`}</h2>
+        <div className="flex flex-col md:flex-row justify-start w-full">
+          <div className="relative w-full md:w-[50%] md:ml-16 mb-8 md:mb-0 aspect-video">
+            <Image
+              src={thumbnail}
+              alt={title}
+              fill
+              className="object-contain object-center"
+            />
           </div>
-          <div className="text-base py-3 text-light2">{game.description}</div>
+          <div className="w-full md:w-[50%] px-4 md:px-16 flex flex-col">
+            <div className="flex flex-wrap justify-start h-fit w-full py-3">
+              {objects.map((object) => (
+                <div
+                  key={object.id}
+                  className="m-2 px-4 py-1.5 rounded-full h-fit w-fit bg-light2"
+                >
+                  <p className="text-black text-base">{object.text}</p>
+                </div>
+              ))}
+            </div>
+            <div className="text-base py-3 text-light2">{game.description}</div>
+          </div>
         </div>
       </div>
       <h2 className="text-lg md:text-xl pt-10 text-left w-full pb-8 md:pb-12 ml-4 md:ml-24 text-light2">{`CONTRIBUTIONS:`}</h2>

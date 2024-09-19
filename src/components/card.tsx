@@ -26,7 +26,7 @@ const Card = ({ game, className }: { game: Game; className?: string }) => {
           <p className="text-light2 text-center flex justify-center items-center text-lg md:text-xl px-2">
             {title}
           </p>
-          <div className="flex flex-row w-full h-full justify-between items-center flex-wrap gap-3">
+          <div className="flex flex-row w-full h-full justify-center items-center flex-wrap gap-3">
             {tags.map((tag) => (
               <span
                 key={tag.id}

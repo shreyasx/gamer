@@ -3,7 +3,6 @@
 import prisma from "@/lib/prisma";
 
 export const getGameById = async (id: number) => {
-  await new Promise((resolve) => setTimeout(resolve, 4500));
   if (!id) return null;
   try {
     const game = prisma.game.findUnique({
