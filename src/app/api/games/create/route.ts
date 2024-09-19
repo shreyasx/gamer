@@ -42,7 +42,7 @@ export async function POST(Request: NextRequest) {
           data: {
             title: g.title,
             description: g.description,
-            thumbnails: g.thumbnails,
+            thumbnail: g.thumbnail,
             contributions: {
               create: g.contributions,
             },

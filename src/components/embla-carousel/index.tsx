@@ -48,7 +48,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                   src={str}
                   alt={`game image ${index + 1}`}
                   fill
-                  className="object-cover border-[2px] border-light2 rounded-3xl"
+                  className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
               </div>

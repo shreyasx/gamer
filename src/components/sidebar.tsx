@@ -33,6 +33,7 @@ const Sidebar = () => {
   }, [gameId]);
 
   const showGoBack = gameName || pathname === "/about";
+  const isAboutPage = pathname === "/about";
 
   return (
     <aside className="bg-navy text-white flex flex-col fixed bottom-0 left-0 w-full h-auto md:h-full md:w-64 2xl:w-96 md:right-0 md:left-auto">
@@ -50,12 +51,14 @@ const Sidebar = () => {
           className={`${showGoBack ? `md:space-y-3` : `md:space-y-20`} flex flex-row md:flex-col items-center w-full py-4 justify-evenly`}
         >
           <Link
-            className="w-full text-lg text-light2 bg-navy2 py-4 justify-center items-center flex rounded-full hover:bg-light3 transition-all duration-300 tracking-wider max-w-60"
+            className={`w-full ${
+              isAboutPage ? `text-2xl` : `text-2xl bg-navy2`
+            } text-light2 py-4 justify-center items-center flex rounded-full hover:bg-light3 transition-all duration-300 tracking-wider max-w-60`}
             href="/about"
           >{`About`}</Link>
           {gameName && (
             <Link
-              className="justify-center items-center flex w-full text-lg text-light2 bg-navy2 py-4 rounded-full hover:bg-light3 transition-all duration-300 max-w-60"
+              className="justify-center items-center flex w-full text-2xl text-light2 py-3 rounded-full max-w-60 md:max-w-none cursor-auto"
               href={`/games/${gameId}`}
             >
               <span className="truncate max-w-[90%]">{gameName}</span>

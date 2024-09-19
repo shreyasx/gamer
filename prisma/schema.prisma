@@ -9,7 +9,7 @@ datasource db {
 
 model Content {
   id          Int    @id @default(autoincrement())
-  image       String
+  images      String[]
   description String
   gameId      Int?
   Game        Game?  @relation(fields: [gameId], references: [id])
@@ -18,7 +18,7 @@ model Content {
 model Game {
   id          Int         @id @default(autoincrement())
   title       String
-  thumbnails   String[]
+  thumbnail   String
   description String
   contributions     Content[]
   objects   ObjectTyp[] @relation("GameObjects")
