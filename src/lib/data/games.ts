@@ -2,12 +2,12 @@
 
 import prisma from "@/lib/prisma";
 
-type Content = { image: string; description: string };
+type Content = { images: string[]; description: string };
 
 export const newContent = async (ct: Content) => {
   const content = await prisma.content.create({
-    data: { image: ct.image, description: ct.description, gameId: 1 },
-    select: { id: true, image: true, description: true },
+    data: { images: ct.images, description: ct.description, gameId: 1 },
+    select: { id: true, images: true, description: true },
   });
   return content;
 };
