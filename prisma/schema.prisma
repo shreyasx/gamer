@@ -18,7 +18,7 @@ model Content {
 model Game {
   id          Int         @id @default(autoincrement())
   title       String
-  thumbnail   String
+  thumbnails   String[]
   description String
   contributions     Content[]
   objects   ObjectTyp[] @relation("GameObjects")

@@ -2,6 +2,8 @@ import { Prisma } from "@prisma/client";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
+import EmblaCarousel from "@/components/embla-carousel";
+
 import { getGameById } from "@/app/actions";
 
 type Props = { params: { id: string } };
@@ -10,12 +12,22 @@ type Game = Prisma.GameGetPayload<{
   include: { tags: true; contributions: true; objects: true };
 }>;
 
+function formatDescription(description: string): string {
+  const lines = description.split("\n");
+  if (lines.length <= 1) return description;
+
+  const title = lines[0];
+  const bulletPoints = lines.slice(1).map((line) => `• ${line.trim()}`);
+
+  return [title, ...bulletPoints].join("\n");
+}
+
 export default async function GameDetails({ params }: Props) {
   const { id } = params;
   const game: Game | null = await getGameById(parseInt(id, 10));
 
   if (!game) return notFound();
-  const { thumbnail, objects, contributions, title } = game;
+  const { thumbnails, objects, contributions } = game;
 
   return (
     <section className="flex justify-center items-center flex-col mr-0 md:mr-8 2xl:px-48 mx-4">
@@ -23,12 +35,7 @@ export default async function GameDetails({ params }: Props) {
         <h2 className="text-lg md:text-xl pb-6 text-light2 text-center w-full">{`OVERVIEW`}</h2>
         <div className="flex flex-col md:flex-row justify-start w-full">
           <div className="relative w-full md:w-[50%] md:ml-16 mb-8 md:mb-0 aspect-video">
-            <Image
-              src={thumbnail}
-              alt={title}
-              fill
-              className="object-contain object-center"
-            />
+            <EmblaCarousel slides={thumbnails} />
           </div>
           <div className="w-full md:w-[50%] px-4 md:px-16 flex flex-col">
             <div className="flex flex-wrap justify-start h-fit w-full py-3">
@@ -60,8 +67,8 @@ export default async function GameDetails({ params }: Props) {
                 className="object-cover"
               />
             </div>
-            <p className="text-base w-full mt-4 text-light2">
-              {contribution.description}
+            <p className="text-base w-full mt-4 text-light2 whitespace-pre-wrap">
+              {formatDescription(contribution.description)}
             </p>
           </div>
         ))}

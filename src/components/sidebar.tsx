@@ -45,17 +45,17 @@ const Sidebar = () => {
           className="rounded-b-full z-50 border-[10px] border-photoBG border-t-0"
         />
       </div>
-      <div className="flex-grow flex flex-col justify-center">
+      <div className="flex-grow flex flex-col justify-center w-full">
         <nav
-          className={`${showGoBack ? `md:space-y-3` : `md:space-y-20`} flex flex-row md:flex-col items-center w-full max-w-72 ml-auto py-4 justify-evenly`}
+          className={`${showGoBack ? `md:space-y-3` : `md:space-y-20`} flex flex-row md:flex-col items-center w-full py-4 justify-evenly`}
         >
           <Link
-            className="w-full text-lg text-light2 bg-navy2 py-4 justify-center items-center flex rounded-full hover:bg-light3 transition-all duration-300 tracking-wider"
+            className="w-full text-lg text-light2 bg-navy2 py-4 justify-center items-center flex rounded-full hover:bg-light3 transition-all duration-300 tracking-wider max-w-60"
             href="/about"
           >{`About`}</Link>
           {gameName && (
             <Link
-              className="justify-center items-center flex w-full text-lg text-light2 bg-navy2 py-4 rounded-full hover:bg-light3 transition-all duration-300"
+              className="justify-center items-center flex w-full text-lg text-light2 bg-navy2 py-4 rounded-full hover:bg-light3 transition-all duration-300 max-w-60"
               href={`/games/${gameId}`}
             >
               <span className="truncate max-w-[90%]">{gameName}</span>
@@ -63,7 +63,7 @@ const Sidebar = () => {
           )}
           {showGoBack && (
             <Link
-              className="w-[90%] text-base md:text-lg text-light2 bg-navy2 justify-center items-center flex py-2 rounded-full hover:bg-light3 transition-all duration-300 truncate"
+              className="w-full text-base text-light2 bg-navy2 justify-center items-center flex py-2 rounded-full hover:bg-light3 transition-all duration-300 truncate max-w-60"
               href={`/`}
             >
               {`Go back`}
@@ -71,7 +71,7 @@ const Sidebar = () => {
           )}
         </nav>
       </div>
-      <div className="text-sm w-full max-w-72 ml-auto text-light2 text-center border-t-4 border-light2 py-4 flex flex-col items-center">
+      <div className="text-sm w-full text-light2 text-center border-t-4 border-light2 py-4 flex flex-col items-center">
         <p>{`rohangwrl@gmail.com`}</p>
         <p>{`+91 9920054070`}</p>
       </div>
