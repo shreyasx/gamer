@@ -67,7 +67,15 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   }, [emblaApi, onSelect]);
 
   return (
-    <section className="embla" ref={containerRef}>
+    <section className="embla relative" ref={containerRef}>
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+        <Image
+          src="/hf.png"
+          alt="Hover over contributions"
+          width={712}
+          height={42}
+        />
+      </div>
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((str, index) => (
