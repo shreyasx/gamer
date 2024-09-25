@@ -36,7 +36,7 @@ const Sidebar = () => {
   const isAboutPage = pathname === "/about";
 
   return (
-    <aside className="bg-navy text-white flex flex-col fixed bottom-0 left-0 w-full h-auto md:h-full md:w-64 2xl:w-96 md:right-0 md:left-auto">
+    <aside className="bg-navy text-white flex flex-col fixed bottom-0 left-0 w-full h-auto md:h-full md:w-64 md:right-0 md:left-auto">
       <div className="hidden md:block w-64 h-80 relative ml-auto">
         <Image
           src="/images/rohan.png"

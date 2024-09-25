@@ -58,11 +58,11 @@ export default async function GameDetails({ params }: Props) {
         </div>
       </div>
       <h2 className="text-lg md:text-xl pt-10 text-left w-full pb-8 md:pb-4 ml-4 md:ml-24 text-light2">{`CONTRIBUTIONS:`}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 w-full justify-center mb-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 w-full justify-center mb-20 overflow-y-auto scrollbar-hide">
         {contributions.map((contribution) => (
           <div
             key={contribution.id}
-            className="p-4 rounded-3xl max-w-[750px] mx-auto w-full"
+            className="p-4 rounded-3xl max-w-[750px] mx-auto w-full overflow-y-auto scrollbar-hide"
           >
             <div className="relative w-full aspect-video">
               <EmblaCarousel slides={contribution.images} />
