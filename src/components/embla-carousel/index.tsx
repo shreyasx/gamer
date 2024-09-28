@@ -29,9 +29,8 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   );
 
   const startAutoplay = useCallback(() => {
-    if (!autoplay) {
+    if (!autoplay)
       setAutoplay(AutoplayPlugin({ delay: 500, stopOnInteraction: false }));
-    }
   }, [autoplay]);
 
   const stopAutoplay = useCallback(() => {
