@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import EmblaCarousel from "@/components/embla-carousel";
 
-import { getGameById } from "@/app/actions";
+import { allGames, getGameById } from "@/app/actions";
 
 type Props = { params: { id: string } };
 
@@ -20,6 +20,15 @@ function formatDescription(description: string): string {
   const bulletPoints = lines.slice(1).map((line) => `• ${line.trim()}`);
 
   return [title, ...bulletPoints].join("\n");
+}
+
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const games = await allGames();
+  return games.map((game: { id: number }) => ({
+    id: game.id.toString(),
+  }));
 }
 
 export default async function GameDetails({ params }: Props) {
