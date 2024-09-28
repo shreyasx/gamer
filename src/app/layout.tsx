@@ -23,8 +23,6 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   robots: { index: true, follow: true },
-  // !STARTERCONF this is the default favicon, you can generate your own from https://realfavicongenerator.net/
-  // ! copy to /favicon folder
   icons: {
     icon: "/favicon/favicon.ico",
     shortcut: "/favicon/favicon-16x16.png",
@@ -50,11 +48,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={poppins.className}>
       <body>
-        <div className="flex h-screen bg-navy text-white ">
-          <main className="mb-auto overflow-y-auto max-h-full w-full md:mr-60">
-            {children}
-          </main>
-          <Sidebar />
+        <div className="flex h-screen bg-navy text-white">
+          <div className="md:hidden flex items-center justify-center w-full h-full">
+            <p className="text-center text-lg">Please view on your laptop</p>
+          </div>
+          <div className="hidden md:flex w-full">
+            <main className="mb-auto overflow-y-auto max-h-full w-full md:mr-60">
+              {children}
+            </main>
+            <Sidebar />
+          </div>
         </div>
       </body>
     </html>

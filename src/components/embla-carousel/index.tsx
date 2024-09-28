@@ -18,6 +18,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   const [autoplay, setAutoplay] = useState<EmblaPluginType | undefined>(
     undefined,
   );
+  const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -30,7 +31,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   const startAutoplay = useCallback(() => {
     if (!autoplay)
-      setAutoplay(AutoplayPlugin({ delay: 500, stopOnInteraction: false }));
+      setAutoplay(AutoplayPlugin({ delay: 2000, stopOnInteraction: false }));
   }, [autoplay]);
 
   const stopAutoplay = useCallback(() => {
@@ -40,17 +41,27 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
     }
   }, [autoplay, emblaApi]);
 
+  const handleMouseEnter = useCallback(() => {
+    setIsHovering(true);
+    startAutoplay();
+  }, [startAutoplay]);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsHovering(false);
+    stopAutoplay();
+  }, [stopAutoplay]);
+
   useEffect(() => {
     const container = containerRef.current;
     if (container) {
-      container.addEventListener("mouseenter", startAutoplay);
-      container.addEventListener("mouseleave", stopAutoplay);
+      container.addEventListener("mouseenter", handleMouseEnter);
+      container.addEventListener("mouseleave", handleMouseLeave);
       return () => {
-        container.removeEventListener("mouseenter", startAutoplay);
-        container.removeEventListener("mouseleave", stopAutoplay);
+        container.removeEventListener("mouseenter", handleMouseEnter);
+        container.removeEventListener("mouseleave", handleMouseLeave);
       };
     }
-  }, [startAutoplay, stopAutoplay]);
+  }, [handleMouseEnter, handleMouseLeave]);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
@@ -67,19 +78,23 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
 
   return (
     <section className="embla relative" ref={containerRef}>
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
-        <Image
-          src="/hf.png"
-          alt="Hover over contributions"
-          width={712}
-          height={42}
-        />
-      </div>
       <div className="embla__viewport overflow-hidden" ref={emblaRef}>
         <div className="embla__container">
           {slides.map((str, index) => (
             <div className="embla__slide flex justify-center" key={index}>
               <div className="aspect-video relative embla__slide__number max-w-full">
+                {slides.length > 1 ? (
+                  <div
+                    className={`absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-250 ${isHovering ? "opacity-0" : "opacity-100"}`}
+                  >
+                    <Image
+                      src="/hf.png"
+                      alt="Hover over contributions"
+                      width={712}
+                      height={42}
+                    />
+                  </div>
+                ) : null}
                 <Image
                   src={str}
                   alt={`game image ${index + 1}`}

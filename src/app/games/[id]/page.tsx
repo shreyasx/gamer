@@ -31,10 +31,10 @@ export default async function GameDetails({ params }: Props) {
 
   return (
     <section className="flex justify-center items-center flex-col mr-0 md:mr-8 2xl:px-36 mx-4">
-      <div className="pt-8 flex flex-col items-center w-full rounded-br-3xl md:mr-24">
+      <div className="pt-8 flex flex-col items-center w-full rounded-br-3xl lg:mr-24">
         <h2 className="text-lg md:text-xl pb-6 text-light2 text-center w-full">{`OVERVIEW`}</h2>
-        <div className="flex flex-col md:flex-row justify-start w-full">
-          <div className="relative w-full md:w-[50%] md:ml-16 mb-8 md:mb-0 aspect-video">
+        <div className="flex flex-col lg:flex-row justify-start w-full">
+          <div className="relative w-full lg:w-[50%] lg:ml-16 mb-8 md:mb-0 aspect-video">
             <Image
               src={thumbnail}
               alt="Game title image"
@@ -42,7 +42,7 @@ export default async function GameDetails({ params }: Props) {
               className="object-contain p-6"
             />
           </div>
-          <div className="w-full md:w-[50%] flex flex-col">
+          <div className="w-full lg:w-[50%] flex flex-col">
             <div className="flex flex-wrap justify-start h-fit w-full py-3">
               {objects.map((object) => (
                 <div
@@ -53,12 +53,14 @@ export default async function GameDetails({ params }: Props) {
                 </div>
               ))}
             </div>
-            <div className="text-base py-3 text-light2">{game.description}</div>
+            <div className="text-base py-3 text-light2 break-words">
+              {game.description}
+            </div>
           </div>
         </div>
       </div>
       <h2 className="text-lg md:text-xl pt-10 text-left w-full pb-8 md:pb-4 ml-4 md:ml-24 text-light2">{`CONTRIBUTIONS:`}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 w-full justify-center mb-20 overflow-y-auto scrollbar-hide">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-12 w-full justify-center mb-20 overflow-y-auto scrollbar-hide">
         {contributions.map((contribution) => (
           <div
             key={contribution.id}

@@ -58,10 +58,10 @@ const Sidebar = () => {
           >{`About`}</Link>
           {gameName && (
             <Link
-              className="justify-center items-center flex w-full text-2xl text-light2 py-3 rounded-full max-w-60 md:max-w-none cursor-auto"
+              className="justify-center items-center flex w-full text-lg text-light2 py-3 rounded-full max-w-60 md:max-w-none cursor-auto"
               href={`/games/${gameId}`}
             >
-              <span className="truncate max-w-[90%]">{gameName}</span>
+              <span className="truncate max-w-[95%]">{gameName}</span>
             </Link>
           )}
           {showGoBack && (
