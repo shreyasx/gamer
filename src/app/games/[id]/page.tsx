@@ -22,7 +22,7 @@ function formatDescription(description: string): string {
   return [title, ...bulletPoints].join("\n");
 }
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
   const games = await allGames();

@@ -5,7 +5,7 @@ import Navbar from "@/components/navbar";
 
 import { allGames } from "@/app/actions";
 
-export const revalidate = 60;
+export const revalidate = 3600;
 
 export default async function HomePage() {
   const games = await allGames();
